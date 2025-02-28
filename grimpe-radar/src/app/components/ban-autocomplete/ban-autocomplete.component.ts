@@ -90,7 +90,7 @@ export class BanAutocompleteComponent {
       return;
     }
     const banRequest = new Request(
-      'http://api-adresse.data.gouv.fr/search/?q=' +
+      'https://api-adresse.data.gouv.fr/search/?q=' +
         query +
         '&limit=' +
         (this.maxResults || 7)
