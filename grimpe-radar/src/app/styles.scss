@@ -1,0 +1,59 @@
+@use "./variables";
+
+body {
+  font-family: variables.$font-family_1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: variables.$background-color_1;
+  color: variables.$color_fg;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+
+      li {
+        a {
+          color: variables.$color_fg;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+header {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+
+::ng-deep .hero {
+  text-align: center;
+  padding: 2rem;
+
+  h1 {
+      margin-bottom: 1rem;
+  }
+}
+
+footer {
+  background-color: variables.$background-color_1;
+  color: variables.$color_fg;
+  text-align: center;
+  padding: 1rem;
+
+  a {
+    color: variables.$color_fg;
+  }
+}

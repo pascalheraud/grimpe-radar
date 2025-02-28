@@ -1,0 +1,82 @@
+<section class="hero">
+  <h1>Trouvez une salle d'escalade publique ou privée</h1>
+  <form class="search-form" action="#" (submit)="onSubmit($event)">
+    <div class="fields">
+      <div class="field field-autocomplete">
+        <ban-autocomplete [(selection)]="searchAddress" />
+      </div>
+      <div class="field field-distance">
+        <div>Recherche dans un rayon de</div>
+        <input
+          min="1"
+          type="range"
+          list="markers"
+          [value]="distance"
+          (input)="onChangeDistance($event)"
+          infiniteScroll
+          [infiniteScrollDistance]="0.5"
+          [infiniteScrollThrottle]="1500"
+          (scrolled)="onScroll()"
+        />
+        <datalist id="markers">
+          @for (index of [10, 20, 30, 40, 50, 60, 70, 80, 90]; track index) {
+          <option value="{{ index }}"></option>
+          }
+        </datalist>
+        <div>{{ distance }} km</div>
+      </div>
+      <div class="field field-buttons">
+        <button class="search-button" type="submit">Rechercher</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+@if (state!='inactive') {
+<div class="results">
+  @if (this.state=='searching' || this.state=='searching-more') {
+  <h2>Recherche en cours...</h2>
+  } @else if (this.state=='found' || this.state=='done') {
+  <h2>
+    Résultats : {{ this.salles.length }} salles affichées sur
+    {{ this.maxIndex }} à {{ this.currentDistance }} km de
+    {{ this.currentAddress!.properties?.city }}
+  </h2>
+  } @else if (this.state=='empty') {
+  <h2>Aucune salle trouvée. Elargissez votre recherche.</h2>
+  }
+  <ul>
+    @for (salle of salles; track salle) {
+    <li>
+      <h3>{{ salle.inst_nom }}</h3>
+      <p>
+        {{ salle.inst_adresse }} {{ salle.inst_cp }} {{ salle.new_name }}
+        <a
+          [href]="
+            'https://www.openstreetmap.org/#map=18/' +
+            salle.coordonnees.lat +
+            '/' +
+            salle.coordonnees.lon
+          "
+          target="_blank"
+          >Carte</a
+        >
+      </p>
+    </li>
+    }
+  </ul>
+
+  @if (this.state=='searching-more') {
+  <div>Chargement des salles suivantes...</div>
+  } @else if (this.state=='found') {
+  <div class="results-next">
+    <div>{{ this.salles.length }} salles trouvées sur {{ this.maxIndex }}</div>
+    <button class="search-button" type="button" (click)="onScroll()">
+      Suivantes
+    </button>
+  </div>
+  } @else if (this.state=='done') {
+  <div>{{ this.salles.length }} salles trouvées au total</div>
+  }
+</div>
+}

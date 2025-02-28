@@ -1,0 +1,114 @@
+@use "../variables";
+
+.search-button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: variables.$background-color_1;
+    color: variables.$color_fg;
+    border: none;
+    cursor: pointer;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+
+    ::ng-deep .autocomplete-container {
+        margin-bottom: 1rem;
+
+        .input-container {
+            input {
+                padding: 0.5rem;
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+    .fields {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .field-distance {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1rem;
+        gap: 1rem;
+
+        div {
+            font-size: 1.3rem;
+        }
+
+        input {
+            flex-grow: 1;
+        }
+
+        margin-bottom: 1rem;
+
+    }
+
+    .field-buttons {
+        margin-top: 1rem;
+    }
+}
+
+footer {
+    background-color: variables.$background-color_1;
+    color: variables.$color_fg;
+    text-align: center;
+    padding: 1rem;
+
+    a {
+        color: variables.$color_fg;
+    }
+}
+
+.results {
+    margin-bottom: 1rem;
+
+    h2 {
+        text-align: center;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 5px;
+
+        & {
+            background-color: yellow;
+            animation: fadeOut 3s forwards;
+
+            @keyframes fadeOut {
+                from {
+                    background-color: yellow;
+                    opacity: 1;
+                }
+
+                to {
+                    background-color: variables.$background-color_2;
+                }
+            }
+        }
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    .results-next {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+}
