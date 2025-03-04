@@ -34,6 +34,11 @@ header {
 header {
   .logo {
     font-size: 1.5rem;
+    background-image: url(/logo.svg);
+    width: 100px;
+    height: 100px;
+    background-size:100px 100px;
+    background-repeat: no-repeat;
   }
 }
 

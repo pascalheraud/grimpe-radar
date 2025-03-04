@@ -85,7 +85,7 @@ export class BanAutocompleteComponent {
   }
 
   onChangeSearch(query: string, updateModel: boolean) {
-    this.data = [];
+    // this.data = [];
     if (!query) {
       return;
     }
