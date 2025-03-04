@@ -15,6 +15,10 @@
     gap: 0.5rem;
     margin-top: 2rem;
 
+    ::ng-deep .ng-autocomplete {
+        width:auto;
+    }
+
     ::ng-deep .autocomplete-container {
         margin-bottom: 1rem;
 
