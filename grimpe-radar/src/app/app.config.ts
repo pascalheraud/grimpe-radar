@@ -3,14 +3,13 @@ import { provideRouter } from '@angular/router';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
-import { TranslateProvider } from './components/ban-autocomplete/ban-autocomplete-i18n';
+import { BanAutocompleteNGTranslateProvider } from 'ban-autocomplete-ng';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAnimationsAsync(),
-    provideAnimationsAsync(),
-    TranslateProvider,
+    BanAutocompleteNGTranslateProvider,
   ],
 };

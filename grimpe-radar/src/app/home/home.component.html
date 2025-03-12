@@ -3,7 +3,7 @@
   <form class="search-form" action="#" (submit)="onSubmit($event)">
     <div class="fields">
       <div class="field field-autocomplete">
-        <ban-autocomplete [(selection)]="searchAddress" />
+        <ban-autocomplete-ng [(selection)]="searchAddress" />
       </div>
       <div class="field field-distance">
         <div>Recherche dans un rayon de</div>
@@ -17,6 +17,7 @@
           [infiniteScrollDistance]="0.5"
           [infiniteScrollThrottle]="1500"
           (scrolled)="onScroll()"
+    
         />
         <datalist id="markers">
           @for (index of [10, 20, 30, 40, 50, 60, 70, 80, 90]; track index) {

@@ -5,10 +5,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import {
-  BanAutocompleteComponent,
-  BanFeature,
-} from '../components/ban-autocomplete/ban-autocomplete.component';
+import { BanAutocompleteNgComponent, BanFeature } from 'ban-autocomplete-ng';
+
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
 
 interface SalleEscalade {
@@ -30,7 +28,7 @@ const pageSize = 5;
 
 @Component({
   selector: 'app-root',
-  imports: [BanAutocompleteComponent, InfiniteScrollDirective],
+  imports: [BanAutocompleteNgComponent, InfiniteScrollDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   encapsulation: ViewEncapsulation.Emulated,
